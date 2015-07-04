@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReportSubscriptions>
+    <ReportSubscription ReportName ="Test-Report" 
+                        SubscriptionDescription="Description" 
+                        DeliveryMethod="Windows File Share"
+                        DataSource="Data Sources/MyDatabase"
+                        ItemPath="/MyItemPath">
+        <EventType>TimedSubscription</EventType>
+        <ExtensionSetting>Report Server FileShare</ExtensionSetting>
+        <QueryDefinition>
+            <CommandText>exec myStoredProcedure 'some parameters'</CommandText>
+            <CommandType>Text</CommandType>
+            <Timeout>30</Timeout>
+            <TimeoutSpecified>true</TimeoutSpecified>
+        </QueryDefinition>
+        <DatasetDefinition>
+            <AccentSensitivitySpecified>false</AccentSensitivitySpecified>
+            <CaseSensitivitySpecified>false</CaseSensitivitySpecified>
+            <KanatypeSensitivitySpecified>false</KanatypeSensitivitySpecified>
+            <WidthSensitivitySpecified>false</WidthSensitivitySpecified>
+            <!--<Fields>
+                <Field>
+                    <Name>StartDate</Name>
+                    <Alias>StartDateAlias</Alias>
+                </Field>
+                <Field>
+                    <Name>EndDate</Name>
+                    <Alias>EndDateAlias</Alias>
+                </Field>
+            </Fields>-->
+        </DatasetDefinition>
+        <ExtensionParameters>
+            <Parameter Type="ParameterValue">
+                <Name>FILENAME</Name>
+                <Value>file.temp</Value>
+            </Parameter>
+            <Parameter Type="ParameterFieldReference">
+                <ParameterName>PATH</ParameterName>
+                <FieldAlias>FileDir</FieldAlias>
+            </Parameter>
+            <Parameter Type="ParameterValue">
+                <Name>RENDER_FORMAT</Name>
+                <Value>CSV</Value>
+            </Parameter>
+            <Parameter Type="ParameterValue">
+                <Name>WRITEMODE</Name>
+                <Value>OVERWRITE</Value>
+            </Parameter>
+            <Parameter Type="ParameterValue">
+                <Name>FILEEXTN</Name>
+                <Value>FALSE</Value>
+            </Parameter>
+            <Parameter Type="ParameterValue">
+                <Name>USERNAME</Name>
+                <Value>domain\aduser</Value>
+            </Parameter>
+            <Parameter Type="ParameterValue">
+                <Name>PASSWORD</Name>
+                <Value>999999</Value>
+            </Parameter>                 
+        </ExtensionParameters>
+        <Parameters>
+            <Parameter Type="ParameterFieldReference">
+                <ParameterName>StartDate</ParameterName>
+                <FieldAlias>StartDate</FieldAlias>
+            </Parameter>
+            <Parameter Type="ParameterFieldReference">
+                <ParameterName>EndDate</ParameterName>
+                <FieldAlias>EndDate</FieldAlias>
+            </Parameter>
+        </Parameters>
+        <ScheduleDefinition>
+            <StartDateTime>2015-08-11T12:01:00+10:00</StartDateTime>
+            <WeeklyRecurrence>
+                <WeeksInterval>1</WeeksInterval>
+                <DaysOfWeek>
+                    <Monday>True</Monday>
+                    <Tuesday>True</Tuesday>
+                    <Wednesday>True</Wednesday>
+                    <Thursday>True</Thursday>
+                    <Friday>True</Friday>
+                    <Saturday>True</Saturday>
+                    <Sunday>True</Sunday>
+                </DaysOfWeek>
+            </WeeklyRecurrence>
+        </ScheduleDefinition>                
+    </ReportSubscription>
+</ReportSubscriptions>
