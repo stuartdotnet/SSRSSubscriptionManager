@@ -14,97 +14,7 @@ SSRS Reports can be version controlled – but how a subscription is set up migh
 The XML documents containing the subscription settings can be added to source control, therefore satisfying audit requirements. 
 
 ##	Example XML Document
-The following is an example of the XML format for one subscription. You should be able to create subscription settings for most basic subscriptions from this template. 
-
-<?xml version="1.0" encoding="utf-8"?>
-<ReportSubscriptions>
-    <ReportSubscription ReportName ="Test-Report" 
-                        SubscriptionDescription="Some info" 
-                        DeliveryMethod="Windows File Share"
-                        DataSource="Data Sources/MyDatasource"
-                        ItemPath="/Example">
-        <EventType>TimedSubscription</EventType>
-        <ExtensionSetting>Report Server FileShare</ExtensionSetting>
-        <QueryDefinition>
-            <CommandText>exec proc_SomeStoredProcedure 'withparameters'</CommandText>
-            <CommandType>Text</CommandType>
-            <Timeout>30</Timeout>
-            <TimeoutSpecified>true</TimeoutSpecified>
-        </QueryDefinition>
-        <DatasetDefinition>
-            <AccentSensitivitySpecified>false</AccentSensitivitySpecified>
-            <CaseSensitivitySpecified>false</CaseSensitivitySpecified>
-            <KanatypeSensitivitySpecified>false</KanatypeSensitivitySpecified>
-            <WidthSensitivitySpecified>false</WidthSensitivitySpecified>
-            <!-- Optional
-            <Fields>
-                <Field>
-                    <Name>StartDate</Name>
-                    <Alias>StartDateAlias</Alias>
-                </Field>
-                <Field>
-                    <Name>EndDate</Name>
-                    <Alias>EndDateAlias</Alias>
-                </Field>
-            </Fields>-->
-        </DatasetDefinition>
-        <ExtensionParameters>
-            <Parameter Type="ParameterValue">
-                <Name>FILENAME</Name>
-                <Value>MYFILE.TEMP</Value>
-            </Parameter>
-            <Parameter Type="ParameterFieldReference">
-                <ParameterName>PATH</ParameterName>
-                <FieldAlias>FileDir</FieldAlias>
-            </Parameter>
-            <Parameter Type="ParameterValue">
-                <Name>RENDER_FORMAT</Name>
-                <Value>CSV</Value>
-            </Parameter>
-            <Parameter Type="ParameterValue">
-                <Name>WRITEMODE</Name>
-                <Value>OVERWRITE</Value>
-            </Parameter>
-            <Parameter Type="ParameterValue">
-                <Name>FILEEXTN</Name>
-                <Value>FALSE</Value>
-            </Parameter>
-            <Parameter Type="ParameterValue">
-                <Name>USERNAME</Name>
-                <Value>test\user1</Value>
-            </Parameter>
-            <Parameter Type="ParameterValue">
-                <Name>PASSWORD</Name>
-                <Value>999999</Value>
-            </Parameter>                 
-        </ExtensionParameters>
-        <Parameters>
-            <Parameter Type="ParameterFieldReference">
-                <ParameterName>StartDate</ParameterName>
-                <FieldAlias>StartDate</FieldAlias>
-            </Parameter>
-            <Parameter Type="ParameterFieldReference">
-                <ParameterName>EndDate</ParameterName>
-                <FieldAlias>EndDate</FieldAlias>
-            </Parameter>
-        </Parameters>
-        <ScheduleDefinition>
-            <StartDateTime>2015-08-11T12:01:00+10:00</StartDateTime>
-            <WeeklyRecurrence>
-                <WeeksInterval>1</WeeksInterval>
-                <DaysOfWeek>
-                    <Monday>True</Monday>
-                    <Tuesday>True</Tuesday>
-                    <Wednesday>True</Wednesday>
-                    <Thursday>True</Thursday>
-                    <Friday>True</Friday>
-                    <Saturday>True</Saturday>
-                    <Sunday>True</Sunday>
-                </DaysOfWeek>
-            </WeeklyRecurrence>
-        </ScheduleDefinition>                
-    </ReportSubscription>
-</ReportSubscriptions>
+See example.xml for an example of the XML format for one subscription. You should be able to create subscription settings for most basic subscriptions from this template. 
 
 ## XML Document Specification
 ###	ReportSubscriptions
@@ -131,3 +41,15 @@ This contains the Server Path of the report. Note this DOES start with a slash (
 Contains parameters from “Step 3” of the Wizard; Command, Timeout etc. 
 ####	Command Text
 Contains a SQL command or query that returns a list of recipients and optionally returns fields used to vary delivery settings and report parameter values for each recipient.
+
+## References
+In creating this application the following links were very useful, and may be useful for future development: 
+
+•	Programmatically Create Data Driven Subscriptions in SQL Server 2005/2008
+http://www.sqlservercurry.com/2009/07/programmatically-create-data-driven.html 
+
+•	Programmatically Playing With SSRS Subscriptions
+http://www.codeproject.com/Articles/36009/Programmatically-Playing-With-SSRS-Subscriptions 
+
+•	Create a Data-Driven Subscription (SSRS Tutorial)
+http://msdn.microsoft.com/en-us/library/ms169673.aspx 
