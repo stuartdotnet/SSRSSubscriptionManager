@@ -1,0 +1,2 @@
+E:\SkyDrive\Dev\SSRSSubscriptionManager\SSRSSubscriptionManager_Console\bin\Debug\SSRSSubscriptionManager.exe.config
+E:\SkyDrive\Dev\SSRSSubscriptionManager\SSRSSubscriptionManager_Console\obj\x86\Debug\SSRSSubscriptionManager_Console.csprojResolveAssemblyReference.cache
