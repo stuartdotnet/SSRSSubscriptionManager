@@ -2,11 +2,13 @@
 Import SSRS Subscriptions from an XML file
 
 ## Allows fast deployment of multiple SSRS subscriptions
-The standard SSRS online wizard is slow and cumbersome. Set an option, click “Next”; set an option, click “Next”. This needs to be done for one subscription at a time. For MLA, it could take up to 30 minutes to create all subscriptions. This might need to be done several times and there is usually some urgency to it. 
+The standard SSRS online wizard is slow and cumbersome. Set an option, click “Next”; set an option, click “Next”. This needs to be done for one subscription at a time. For large sets of subscriptions, it could take up to 30 minutes to create all subscriptions. This might need to be done several times and there may be urgency to it. 
+
 SSRS Subscription Manager will allow the instant creation of multiple SSRS Subscriptions, once they have been defined. 
 
 ## More Reliable
 The standard SSRS wizard is highly prone to human error. Stepping through each of the wizards manually makes it easy to set a setting incorrectly or mix up which subscription you are adding settings to, especially if the operator is distracted in the middle of a wizard.  
+
 SSRS Subscription Manager uses pre-defined XML documents to load the settings. These documents can be tested, verified and then controlled in order to minimise the possibility of the subscriptions being set up incorrectly. 
 
 ## Enables controlled documentation of subscription settings
